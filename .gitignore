@@ -1,0 +1,10 @@
+# Ignore object files
+obj/
+*.o
+
+# Ignore binary files
+bin/
+*.exe
+
+# Ignore build files
+*.log
