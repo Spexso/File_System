@@ -31,13 +31,14 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 # Run the executable
 run: $(EXECUTABLE)
-	$(EXECUTABLE)
+	@echo "Block size (KB):" $(BLOCK_SIZE)
+	@echo "File name:" $(FILE_NAME)
+	$(EXECUTABLE) $(BLOCK_SIZE) $(FILE_NAME)
 
-	
 # Clean up the build
 clean:
-	rmdir /S /Q $(OBJ_DIR)
-	rmdir /S /Q $(BIN_DIR)
+	if exist $(OBJ_DIR) rmdir /S /Q $(OBJ_DIR)
+	if exist $(BIN_DIR) rmdir /S /Q $(BIN_DIR)
 
 # Phony targets
-.PHONY: all clean
+.PHONY: all clean run
